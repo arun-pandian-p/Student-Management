@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 # Student-Management
 A Student Management System built using PHP, MySQL, HTML, CSS, and JavaScript to manage student information through a simple web interface.
-=======
+
 # Student Management System (PHP 8+ & MySQL CRUD)
 
 A professional, full-featured **Student Management System** built with native **PHP 8+**, **MySQL**, **PDO**, **Bootstrap 5**, and clean vanilla JavaScript. Designed specifically for local development with **XAMPP**.
@@ -175,4 +175,4 @@ define('DB_CHARSET', 'utf8mb4');
    - Confirm that the deletion modal shows the student's name and ID.
    - Click **Yes, Delete** to execute the deletion and observe the flash confirmation.
 
->>>>>>> master
+
