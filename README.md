@@ -1,178 +1,259 @@
+# Student Management System
 
-# Student-Management
-A Student Management System built using PHP, MySQL, HTML, CSS, and JavaScript to manage student information through a simple web interface.
+A full-featured web-based Student Management System built using **PHP 8+, MySQL, PDO, Bootstrap 5, HTML, CSS and JavaScript**. Designed to simplify student record management through a responsive admin dashboard, secure authentication and complete CRUD operations.
 
-# Student Management System (PHP 8+ & MySQL CRUD)
+## Application Preview
 
-A professional, full-featured **Student Management System** built with native **PHP 8+**, **MySQL**, **PDO**, **Bootstrap 5**, and clean vanilla JavaScript. Designed specifically for local development with **XAMPP**.
+<table>
+  <tr>
+    <td width="33%" align="center">
+      <img src="https://github.com/user-attachments/assets/01054b84-7a02-4b73-89b6-08c2a7a0b67c" width="100%" alt="Student Management System Preview 1"/>
+      <sub><b>Application Preview 01</b></sub>
+    </td>
+    <td width="33%" align="center">
+      <img src="https://github.com/user-attachments/assets/46232b6d-4b36-486d-93f8-9a59c882f5d0" width="100%" alt="Student Management System Preview 2"/>
+      <sub><b>Application Preview 02</b></sub>
+    </td>
+    <td width="33%" align="center">
+      <img src="https://github.com/user-attachments/assets/3fdc1d27-798a-4e9b-b5e3-b5ce537faece" width="100%" alt="Student Management System Preview 3"/>
+      <sub><b>Application Preview 03</b></sub>
+    </td>
+  </tr>
+</table>
 
----
+## Tech Stack
 
-## 🚀 Key Features
+| Technology | Purpose |
+|---|---|
+| PHP 8+ | Backend development and application logic |
+| MySQL | Relational database management |
+| PDO | Database connectivity and prepared statements |
+| HTML5 & CSS3 | Webpage structure and styling |
+| Bootstrap 5 | Responsive user interface |
+| JavaScript | Interactive elements and client-side functionality |
+| XAMPP | Local development environment |
 
-### 1. Authentication & Admin Security (New)
-- **Login Screen (`login.php`)**: Secure authentication system with Bcrypt hashed passwords and CSRF validation.
-- **Admin Credentials**:
-  - **Email**: `arun@gmail.com`
-  - **Password**: `arun4709s`
-  - Features 1-click **"Autofill"** and password visibility reveal toggles.
-- **Admin Profile Management (`admin/profile.php`)**: View administrator profile, update display name, email, and change passwords.
-- **Secure Logout (`logout.php`)**: Full session invalidation and flash confirmation.
-- **Auth Guard**: Protects all administrative CRUD routes while keeping `students/verify.php` publicly scannable.
+## Features
 
-### 2. Dashboard Overview
-- **Real-Time Counters**: Total students, Active students count, and Inactive students count.
-- **Department Breakdown**: Visual distribution and percentage progress indicators across faculties.
-- **Recent Registrations**: Table showing the latest enrolled students with quick actions (View, Edit, Delete).
-- **System Information Widget**: Displays PHP version, database engine, and server status.
+### 1. Authentication & Admin Management
+- Admin login with password hashing.
+- Session-based authentication and protected admin pages.
+- CSRF validation for protected form submissions.
+- Admin profile management.
+- Profile information and password updates.
+- Secure logout and session invalidation.
 
-### 2. Complete CRUD Student Management
-- **Create Student**:
-  - Auto-generated sequential Student ID format: `STU-YYYY-XXX` (e.g., `STU-2024-001`, `STU-2026-001`).
-  - Fields: Full Name, Email (unique), Phone Number, Department, Date of Birth, Gender, Address, Enrollment Date, Status (Active / Inactive).
-  - Dual validation: Client-side HTML5 validation and robust server-side PHP validation.
-- **QR & AR Digital ID Generator (New)**:
-  - **Dynamic Scannable QR Codes**: Instant client-side QR generation containing direct official verification URLs.
-  - **1-Click Copy Link**: Shareable credential link with instant clipboard copy.
-  - **Download QR Code**: Export QR codes as high-resolution PNG images.
-  - **Interactive 3D / AR Digital Student Badge**: Tap or tiltable 3D holographic student ID card showing front profile and back scannable QR badge.
-  - **Official Verification Portal (`verify.php`)**: Publicly scannable verification page authenticating active student status, credentials, and printable ID badge.
-- **Read & Explore Students**:
-  - Responsive, beautifully styled data table.
-  - **Live Search**: Instant multi-field search across student name, email, student ID, and phone number.
-  - **Filters**: Filter by Department and Enrollment Status (Active / Inactive).
-  - **Pagination**: Configurable page limit with query parameter preservation across page navigation.
-  - **Quick Details Modal**: View comprehensive student profiles without leaving the list.
-  - **Empty States**: Helpful empty state illustrations and reset buttons when no records match.
-- **Update Student**:
-  - Edit existing student information with pre-populated form fields.
-  - Student ID is locked to maintain data integrity.
-  - Database-backed email uniqueness validation that excludes the student's current record.
-  - Preserves input values if validation fails.
-- **Delete Student**:
-  - Safe, CSRF-protected deletion via `POST` (prevents accidental URL click deletions).
-  - Interactive Bootstrap confirmation modal showing the student's name and ID before deletion.
+### 2. Admin Dashboard
+- Overview of total, active and inactive students.
+- Department-wise student statistics.
+- Recent student registrations.
+- Quick access to student management features.
+- System information including PHP and database status.
 
-### 3. Architecture & Security Standards
-- **PDO Database Connectivity**: Prepared statements throughout to guarantee protection against **SQL Injection**.
-- **Cross-Site Request Forgery (CSRF)**: Cryptographically secure CSRF tokens embedded in all forms and validated on submission.
-- **Cross-Site Scripting (XSS)**: All outputs safely escaped using a custom `e()` helper (`htmlspecialchars` with `ENT_QUOTES`).
-- **Input Sanitization**: Strip slashes and trim inputs automatically.
-- **Flash Messages**: Success, warning, and danger notifications stored in PHP sessions with auto-dismissing Bootstrap alerts.
-- **Zero Framework Bloat**: Pure, high-performance PHP 8+ without Laravel, Composer dependencies, or Node.js build steps.
+### 3. Student Management (CRUD)
 
----
+**Create Students**
+- Register new students with personal and academic information.
+- Automatically generated student IDs.
+- Fields include name, email, phone, department, date of birth, gender, address, enrollment date and status.
+- Client-side and server-side form validation.
+- Unique email validation.
 
-## 📁 Project Structure
+**View Students**
+- Responsive student records table.
+- Search by student name, email, ID or phone number.
+- Department and enrollment-status filters.
+- Pagination for student records.
+- Quick student profile view.
+
+**Update Students**
+- Edit existing student information.
+- Pre-filled form fields.
+- Student ID protection.
+- Database-backed email uniqueness validation.
+
+**Delete Students**
+- Confirmation dialog before deletion.
+- CSRF-protected POST requests.
+- Success and error notifications.
+
+### 4. QR Code & Digital Student ID
+- Generate QR codes for student verification.
+- Create shareable student verification links.
+- Copy verification links to the clipboard.
+- Download QR codes as PNG images.
+- Interactive 3D student ID card.
+- Public student verification page.
+- Display student details and enrollment status through QR verification.
+
+### 5. Security & Backend
+- PDO database connectivity.
+- Prepared SQL statements to help prevent SQL injection.
+- Password hashing and verification.
+- CSRF token generation and validation.
+- Output escaping to reduce XSS risks.
+- Server-side input validation.
+- PHP session management.
+- Reusable helper functions and flash messages.
+
+## Project Structure
 
 ```text
 student-management/
-├── config/
-│   └── database.php         # PDO connection & dynamic BASE_URL configuration
-├── includes/
-│   ├── header.php           # Global HTML head, navbar, and flash message renderer
-│   ├── sidebar.php          # Responsive sidebar navigation
-│   ├── footer.php           # Global footer, delete modal, profile modal, and scripts
-│   └── functions.php        # Reusable helpers (CSRF, XSS, validation, flash alerts)
-├── students/
-│   ├── index.php            # Read: table, search, filter, pagination
-│   ├── create.php           # Create: new student registration form
-│   ├── store.php            # Create: POST processing & DB insert
-│   ├── edit.php             # Update: edit student details form
-│   ├── update.php           # Update: POST processing & DB update
-│   └── delete.php           # Delete: CSRF-protected POST record deletion
+│
+├── admin/
+│   └── profile.php
+│
 ├── assets/
 │   ├── css/
-│   │   └── style.css        # Modern admin dashboard stylesheet
-│   └── js/
-│       └── main.js          # Modal triggers, tooltips, validation, auto-dismiss
+│   │   └── style.css
+│   ├── js/
+│   │   └── main.js
+│   └── uploads/
+│       └── students/
+│
+├── config/
+│   ├── database.php
+│   └── database.example.php
+│
 ├── database/
-│   └── schema.sql           # Database schema, table indexes, and sample records
-└── index.php                # Dashboard homepage with metrics and recent students
+│   └── schema.sql
+│
+├── includes/
+│   ├── header.php
+│   ├── sidebar.php
+│   ├── footer.php
+│   └── functions.php
+│
+├── students/
+│   ├── index.php
+│   ├── create.php
+│   ├── store.php
+│   ├── edit.php
+│   ├── update.php
+│   ├── delete.php
+│   ├── qr-generator.php
+│   └── verify.php
+│
+├── index.php
+├── login.php
+├── logout.php
+├── .gitignore
+└── README.md
 ```
 
----
+## Installation & Setup
 
-## 🛠️ Step-by-Step Setup Guide (XAMPP)
+### Requirements
+- XAMPP
+- PHP 8.0 or later
+- MySQL
+- Modern web browser
 
-### Step 1: Place the Project in XAMPP `htdocs`
-Copy the `student-management` folder into your XAMPP web root directory:
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/arun-pandian-p/Student-Management.git
+```
+
+Move the project folder into your XAMPP `htdocs` directory:
+
 ```text
-C:\xampp\htdocs\student-management\
+C:\xampp\htdocs\student-management
 ```
 
-### Step 2: Start Apache and MySQL
-1. Launch the **XAMPP Control Panel**.
-2. Click **Start** next to **Apache**.
-3. Click **Start** next to **MySQL**.
-*(Both modules should turn green).*
+### Step 2: Start XAMPP
 
-### Step 3: Create Database & Import Schema
-#### Method A: Using phpMyAdmin (Recommended)
-1. Open your web browser and navigate to: [http://localhost/phpmyadmin/](http://localhost/phpmyadmin/)
-2. Click on **New** (or **Databases**) in the left sidebar.
-3. In the "Database name" input, enter:
-   ```text
-   student_management
-   ```
-4. Click **Create**.
-5. With `student_management` selected, click on the **Import** tab at the top.
-6. Click **Choose File** and select:
-   ```text
-   C:\xampp\htdocs\student-management\database\schema.sql
-   ```
-7. Click the **Import** button at the bottom.
+1. Open XAMPP Control Panel.
+2. Start Apache.
+3. Start MySQL.
 
-#### Method B: Using MySQL Command Line
-Run this command in Windows PowerShell or Command Prompt:
-```cmd
-C:\xampp\mysql\bin\mysql.exe -u root < C:\xampp\htdocs\student-management\database\schema.sql
+### Step 3: Create the Database
+
+1. Open phpMyAdmin:
+
+   http://localhost/phpmyadmin/
+
+2. Create a database named:
+
+```sql
+student_management
 ```
 
-### Step 4: Open the Application
-Open your browser and visit:
-👉 **[http://localhost/student-management/](http://localhost/student-management/)**
+3. Select the database.
+4. Open the Import tab.
+5. Import the project's `database/schema.sql` file.
 
----
+### Step 4: Configure Database Connection
 
-## ⚙️ Database Configuration
+Copy the example configuration:
 
-If your MySQL setup uses a custom port or a root password, modify `config/database.php`:
+```powershell
+Copy-Item config/database.example.php config/database.php
+```
+
+Update the database settings in `config/database.php`:
 
 ```php
 define('DB_HOST', 'localhost');
 define('DB_PORT', '3306');
 define('DB_NAME', 'student_management');
 define('DB_USER', 'root');
-define('DB_PASS', '');          // Set your MySQL password here if applicable
+define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
 ```
 
+Use the credentials configured in your local MySQL installation.
+
+### Step 5: Run the Application
+
+Open your browser and visit:
+
+http://localhost/student-management/
+
+Log in using an administrator account configured in your local database.
+
+## Testing Guide
+
+Use the following checklist to test the application:
+
+| Test | Expected Result |
+|---|---|
+| Admin Login | Authentication and dashboard access |
+| Dashboard | Student statistics displayed |
+| Add Student | New student record created |
+| View Students | Student records displayed |
+| Search | Matching student records found |
+| Filters | Records filtered by department and status |
+| Edit Student | Student information updated |
+| Delete Student | Selected record removed after confirmation |
+| QR Generator | Student QR code generated |
+| Student Verification | Student information displayed through verification link |
+| Admin Profile | Profile details updated |
+
+## Learning Objectives
+
+This project helped me practise:
+
+- PHP backend development and server-side programming.
+- MySQL database design and SQL queries.
+- CRUD operations and form handling.
+- Frontend and backend integration.
+- Authentication and session management.
+- Database connectivity using PDO.
+- Building responsive web applications.
+- Debugging and troubleshooting application issues.
+
+## Author
+
+**Arun Pandian**
+
+B.Tech – Artificial Intelligence & Data Science (2026)
+
+- GitHub: https://github.com/arun-pandian-p
+- LinkedIn: https://linkedin.com/in/arunpandian-developer
+- Portfolio: https://arunpandian.online
+
 ---
 
-## 🧪 Testing CRUD Functionality
-
-1. **Test Dashboard**:
-   - Verify metrics for Total Students, Active Students, and Inactive Students match the database.
-2. **Test Search & Filters**:
-   - Go to **All Students** (`/students/index.php`).
-   - Search for a student by name (e.g. `Sophia` or `Alexander`).
-   - Filter by department (e.g. `Computer Science`) and status (`Active`).
-   - Click the page numbers to verify pagination retains filter criteria.
-3. **Test Create (Add Student)**:
-   - Click **Add Student** (`/students/create.php`).
-   - Attempt to submit an empty form to observe both client-side and server-side validation.
-   - Enter duplicate email to verify database uniqueness error feedback.
-   - Complete valid inputs and submit; check the green success alert on the student list.
-4. **Test Quick Profile View**:
-   - Click the eye icon (`View`) next to any student to open the instant profile modal.
-5. **Test Update (Edit Student)**:
-   - Click the pencil icon (`Edit`) next to any student.
-   - Modify fields (e.g., change department or phone number) and save.
-   - Verify the update is reflected in the table and database.
-6. **Test Delete**:
-   - Click the trash icon (`Delete`).
-   - Confirm that the deletion modal shows the student's name and ID.
-   - Click **Yes, Delete** to execute the deletion and observe the flash confirmation.
-
-
+**Student Management System** – Built to practise PHP, MySQL and practical web application development.
